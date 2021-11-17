@@ -5,7 +5,9 @@
 >  UNDER DEVELOPMENT
 
 ### TO-DO
-> - Finalize attributes for all models
 > - Date range input for rooms
-- being awsome ✨UwU✨
+> - Finalize attributes for all models
+> - Admin routes for entities like managers, guides, agents, rooms, hotels
+> - Help messages and tips for all users
 
+- being awsome ✨UwU✨
