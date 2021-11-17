@@ -79,8 +79,9 @@ exports.loggingin = (req, res) => {
                     req.session.userId = user._id
                     req.session.username = user.username
                     req.session.role = user.role
+
                     
-                    res.redirect('/dashboard')
+                    res.redirect('/profile')
                 } else {
                     res.send("password error")
                 }
@@ -137,10 +138,10 @@ exports.roomlist = function(req, res) {
 
 
 
-exports.dashboard = (req, res) => {
+exports.profile = (req, res) => {
     console.log(req.user);  
     console.log(req.session.role)
-    res.render('dashboard',{title: 'dashboard', isloggedin: req.session.userId, role:req.session.role});
+    res.render('profile',{title: 'profile', isloggedin: req.session.userId, username: req.session.username, role:req.session.role});
 }
 
 
@@ -164,22 +165,61 @@ exports.updateuserform = (req, res)=>{
     }
 
 
-exports.updateuser = (req, res)=>{
+exports.updateuser = (req, res) => {
+        const id = req.params.id
     
-    const id = req.params.id;
-    console.log(id)
-    users.findByIdAndUpdate(id, req.body, {new: true}, (req,res) =>{
-        console.log(req.body)
+        users.findById(id, function (err, user) {
+            if (!user) {
+                res.statusCode = 404;
+                return res.json({
+                    error: 'Not found'
+                });
+            }
+            if(!req.body.username){
+                user.username = user.username
+            }
+            else{
+                user.username = req.body.username
+            }
+            if(!req.body.password){
+                user.password = user.password
+            }
+            else{
+                user.password = req.body.password
+            }
+            // user.username = req.body.username;
+            user.save(function (err) {
+                if (!err) {
+                    return res.redirect('/userlist');
+                } else {
+                    if (err.name === 'ValidationError') {
+                        res.statusCode = 400;
+                        return res.json({
+                            error: 'Validation error'
+                        });
+                    } else {
+                        res.statusCode = 500;
+    
+                        return res.json({
+                            error: 'Server error'
+                        });
+                    }
+                }
+            });
+        })
     }
-        
-    )
-
-
-    res.redirect('')
 
 
 
-    
-    
-    
-}
+    exports.deleteuser = (req, res) => {          
+          var deleteId= req.params.id;
+          var user = users.findById(deleteId)
+
+
+
+
+
+          users.findByIdAndDelete(deleteId,function(data){
+             res.redirect('/userlist')
+          });
+        }

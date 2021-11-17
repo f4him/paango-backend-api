@@ -4,10 +4,11 @@
 <!-- /include header -->
 
 
-<h1 style="text-align: center;">    DASHBOARD</h1>
+<h1 style="text-align: center;">PROFILE</h1>
 <% if(isloggedin) {%>
-    <h1>UserID:<%= isloggedin%> is logged in now </h1>
-    <h2>Role: <%= role%></h2>
+    <h1 style="text-align: center;">Information of logged in user</h1>
+    <h2 style="text-align: center;">Name: <%= username%></h2>
+    <h2 style="text-align: center;">Role: <%= role%></h2>
     <% } %>
 
     <% if(!isloggedin) {%>

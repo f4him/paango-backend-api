@@ -6,10 +6,10 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Role</th>
-      <th scope="col">Update/Delete</th>
+      <th>#</th>
+      <th>Name</th>
+      <th>Role</th>
+      <th>Update/Delete</th>
    
     </tr>
   </thead>
@@ -18,17 +18,16 @@
    
     for(var i = 0; i< data.length; i++) {%>  
     <tr>
-      <th scope="row"><%= (i+1) %></th>
+      <td><%= (i+1) %></td>
       <td><%= data[i].username%></td>
       <td><%= data[i].role%></td>
-      <td><%= data[i]._id%></td>
-      <td><a href="/user/<%= data[i]._id%>">UPDATE</a><a href="#">D</a></td>
+      <td><a href="/user/<%= data[i]._id%>">UPDATE</a>     <a href="/delete/user/<%= data[i]._id%>">DELETE</a></td>
     </tr>
     <% }
              
      }else{ %>
          <tr>
-            <td colspan="3">No user</td>
+            <td colspan="4">No user</td>
          </tr>
       <% } %>    
     
