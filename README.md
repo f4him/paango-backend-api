@@ -6,6 +6,7 @@
 
 ### TO-DO
 > - Date range input for rooms
+> - rooms get deleted with the deletion of manager/hotel
 > - Finalize attributes for all models
 > - Admin routes for entities like managers, guides, agents, rooms, hotels
 > - Help messages and tips for all 
