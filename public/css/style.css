@@ -1,0 +1,108 @@
+
+
+/* header CSS */
+
+*{
+  font-family: 'Poppins', sans-serif;
+  transition:all 0.3s ease-in-out;}
+
+.nav-container{
+  clear:both;
+  overflow:auto;
+}
+
+nav{
+  float:right;
+}
+
+.logo img{
+  float:left;
+}
+
+nav ul li{
+  display: inline-block; 
+  padding:0px 15px;
+  font-size:20px;
+}
+
+
+nav ul li a{
+  font-weight: bold;
+    text-decoration: none;
+    color: #344451;
+
+}
+
+ul li a:hover{
+  color:#ff764a;
+  
+}
+
+
+
+
+
+
+/* footer css */
+
+footer {
+background: #1A1E25;
+color: #868c96;
+height: 100px;
+}
+
+footer p {
+text-align: center;
+}
+
+footer img {
+width: 44px;
+}
+
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+/* Form styling */
+
+
+  .add-item-form {
+    max-width: 700px;
+    /* padding: 2rem; */
+    /* box-sizing: border-box; */
+    margin-left:10%;
+    margin-right:10%;
+  }
+  
+  .form-field {
+    display: flex;
+    margin: 0 0 1rem 0;
+  }
+
+  .box-shape{
+      width: 100%;
+  }
+
+
+  input {
+    /* width: 100%; */
+    padding: 0.5rem;
+    box-sizing: border-box;
+    /* justify-content: space-between; */
+    /* font-size: 1.1rem; */
+  }
+  label {
+    /* text-align: right; */
+    width: 30%;
+  }
+  input {
+    border: 2px solid #aaa;
+    border-radius: 2px;
+  }
+
+

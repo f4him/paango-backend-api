@@ -1,0 +1,27 @@
+
+
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+
+      <form method="POST" action="/login" class="add-item-form">
+        <div class="form-field">
+          <label for="username">username</label>
+          <input class="box-shape" type="text" name="username" id="username" placeholder="Username" required />
+        </div>
+        <div class="form-field">
+          <label for="password">password</label>
+          <input class="box-shape" type="password" name="password" id="password" placeholder="password" required />
+        </div>
+        <div class="form-field">
+          <label for=""></label>
+          <input style="width: 70%;" type="submit" value="Log in" />
+        </div>
+      </form>
+
+
+
+    <!-- include header -->
+    <%- include('include/_footer') %>
+    <!-- /include header -->

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> 
+
+    <title><%= title%></title>
+</head>
+<div class="flex-wrapper">
+<body>
+    <div class="nav-container">
+        <div class="logo">
+            <a target="_blank" href="https://paango.org"><img src="/img/logo.png" alt="PAANGO" width="130"/></a>
+        </div>
+                <nav>
+                    <ul>
+                        <% if(isloggedin){ %>
+                            <li><a class="hover-1" href="http://localhost:1523/adduser">Users</a></li>
+                            <li><a href="http://localhost:1523/addhotel">Hotels</a></li>
+                            <li><a href="http://localhost:1523/addroom">Rooms</a></li>
+                            <li><a href="http://localhost:1523/dashboard">Profile</a></li>
+                            <li><a href="http://localhost:1523/logout">Log out</a></li>
+                        <% } else { %>
+                        <li><a href="http://localhost:1523/login">Log in</a></li>
+                        <% } %>
+                            
+                        
+                    </ul>
+                 </nav>
+        </div>
+
+
+
