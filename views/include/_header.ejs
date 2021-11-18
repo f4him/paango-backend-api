@@ -23,10 +23,16 @@
         </div>
                 <nav>
                     <ul>
-                        <% if(isloggedin){ %>
-                            <li><a class="hover-1" href="http://localhost:1523/adduser">Users</a></li>
+                        <% if(role == 'admin'){ %>
+                            <li><a href="http://localhost:1523/adduser">addUsers</a></li>
+                            <li><a href="http://localhost:1523/userlist">Userlist</a></li>
                             <li><a href="http://localhost:1523/addhotel">Hotels</a></li>
                             <li><a href="http://localhost:1523/addroom">Rooms</a></li>
+                            <% }  %>
+                            <% if(role == 'manager'){ %>
+                                <li><a href="http://localhost:1523/roomlist">Roomlist</a></li>
+                                <% }  %>
+                        <% if(isloggedin){ %>
                             <li><a href="http://localhost:1523/profile">Profile</a></li>
                             <li><a href="http://localhost:1523/logout">Log out</a></li>
                         <% } else { %>

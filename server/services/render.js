@@ -4,19 +4,18 @@ const rooms = require('../models/rooms');
 
 exports.adduser = (req, res) => {
     
-    res.render('adduser',{title:'Add user', isloggedin: req.session.userId});
+    res.render('adduser',{title:'Add user', isloggedin: req.session.userId, role:req.session.role});
 }
 
 
 exports.createuser = (req, res) => {
     users.create(req.body, (error, post) => {
-        console.log('User added')
         res.redirect('/adduser')
     })
 }
 
 exports.addhotel =  (req, res) => {
-    res.render("addhotel", {title: "Add a hotel",isloggedin: req.session.userId});
+    res.render("addhotel", {title: "Add a hotel",isloggedin: req.session.userId, role:req.session.role});
 }
 
 
@@ -37,7 +36,7 @@ exports.addroom =  (req, res) => {
     users.find({role:'manager'},(err, data) => {
         if (!err) {
             res.render("addroom", {
-                title: "Add a hotel",
+                title: "Add a room",
                 data: data,
                 isloggedin: req.session.userId
             });
@@ -58,7 +57,7 @@ exports.createroom = (req, res) => {
 
 
 exports.login = (req, res) => {
-    res.render('login', {title:'Login', isloggedin: req.session.userId});
+    res.render('login', {title:'Login', isloggedin: req.session.userId, role:req.session.role});
 }
 
 
@@ -106,11 +105,7 @@ exports.userlist = function(req, res) {
       
     users.find((err, data) => {
         if (!err) {
-            res.render("userlist", {
-                title: "userlist",
-                isloggedin: req.session.username,
-                data: data
-            });
+            res.render("userlist", {title: "userlist",isloggedin: req.session.username, role:req.session.role, data: data});
         } else {
             console.log('Error: ' + err);
         }
@@ -127,7 +122,8 @@ exports.roomlist = function(req, res) {
             res.render("roomlist", {
                 title: "roomlist",
                 isloggedin: req.session.username,
-                data: data
+                data: data,
+                role:req.session.role
             });
         } else {
             console.log('Error: ' + err);
@@ -139,8 +135,6 @@ exports.roomlist = function(req, res) {
 
 
 exports.profile = (req, res) => {
-    console.log(req.user);  
-    console.log(req.session.role)
     res.render('profile',{title: 'profile', isloggedin: req.session.userId, username: req.session.username, role:req.session.role});
 }
 
@@ -154,9 +148,8 @@ exports.updateuserform = (req, res)=>{
             if(!data){
                 res.status(404).send({ message : "Not found user with id "+ id})
             }else{
-                // res.send(data)
-                // console.log(data)
-                res.render('updateuser',{ user: data,title:'update user', isloggedin: req.session.userId})
+
+                res.render('updateuser',{ user: data,title:'update user', isloggedin: req.session.userId, role:req.session.role})
             }
         })
         .catch(err =>{
@@ -215,10 +208,7 @@ exports.updateuser = (req, res) => {
           var deleteId= req.params.id;
           var user = users.findById(deleteId)
 
-
-
-
-
+        //   if manager delete roomlist with manager
           users.findByIdAndDelete(deleteId,function(data){
              res.redirect('/userlist')
           });
