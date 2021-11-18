@@ -78,8 +78,6 @@ exports.loggingin = (req, res) => {
                     req.session.userId = user._id
                     req.session.username = user.username
                     req.session.role = user.role
-
-                    
                     res.redirect('/profile')
                 } else {
                     res.send("password error")
