@@ -1,0 +1,27 @@
+
+<%- include('include/_header') %>
+
+
+
+<form method="POST" action="/update-rental-manager/<%=user._id%>" class="add-item-form">
+    
+    <div class="form-field">
+      <label for="username">Manager name</label>
+      <input class="box-shape" type="text" name="username" id="username" placeholder="username" value="<%= user.username%>" required />
+    </div>
+
+    <div class="form-field">
+      <label for="password">password</label>
+      <input class="box-shape" type="password" name="password" id="password" placeholder="easy password to remember" required />
+    </div>
+
+    <div class="form-field">
+      <input type="submit" value="Update rental manager" />
+    </div>
+  </form>
+
+  <a href="/rental-manager-list">Back to rental manager list</a>
+
+
+
+<%- include('include/_footer') %>

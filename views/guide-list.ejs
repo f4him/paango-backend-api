@@ -7,8 +7,11 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>Name</th>
-      <th>Role</th>
+      <th>Username</th>
+      <th>Availability</th>
+      <th>Location</th>
+      <th>Base price</th>
+      <th>Site list</th>
       <th>Update/Delete</th>
    
     </tr>
@@ -20,8 +23,11 @@
     <tr>
       <td><%= (i+1) %></td>
       <td><%= data[i].username%></td>
-      <td><%= data[i].role%></td>
-      <td><a href="/user/<%= data[i]._id%>">UPDATE</a>     <a href="/delete/user/<%= data[i]._id%>">DELETE</a></td>
+      <td><%= data[i].availability%></td>
+      <td><%= data[i].location%></td>
+      <td><%= data[i].base_price%></td>
+      <td><%= data[i].site_list%></td>
+      <td><a href="/update-guide/<%= data[i]._id%>">UPDATE</a>     <a href="/delete-guide/<%= data[i]._id%>">DELETE</a></td>
     </tr>
     <% }
              
@@ -33,7 +39,6 @@
     
   </tbody>
   </table>
-  <a href="/adduser">Add another user</a>
 
     <!-- include header -->
     <%- include('include/_footer') %>

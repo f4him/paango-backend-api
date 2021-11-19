@@ -4,7 +4,7 @@ const roomSchema = new mongoose.Schema({
     roomid: String,
     hotel: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'hotel_managers'
     },
     type: String
 });

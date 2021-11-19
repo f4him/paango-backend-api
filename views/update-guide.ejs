@@ -1,0 +1,51 @@
+
+<%- include('include/_header') %>
+
+
+
+<form method="POST" action="/update-guide/<%=user._id%>" class="add-item-form">
+    
+    <div class="form-field">
+      <label for="username">Guide name</label>
+      <input class="box-shape" type="text" name="username" id="username" placeholder="username" value="<%= user.username%>" required />
+    </div>
+
+    <div class="form-field">
+      <label for="password">Password</label>
+      <input class="box-shape" type="password" name="password" id="password" placeholder="easy password to remember" required />
+    </div>
+
+    <div class="form-field">
+        <label for="availability">Availability</label>
+        <input class="box-shape" type="text" name="availability" id="availability" placeholder="availability" value="<%= user.availability%>" required />
+      </div>
+
+      <div class="form-field">
+        <label for="location">Location</label>
+        <input class="box-shape" type="text" name="location" id="location" placeholder="Location of guide" value="<%= user.location%>" required />
+      </div>
+
+
+      <div class="form-field">
+        <label for="base_price">Base price</label>
+        <input class="box-shape" type="text" name="base_price" id="base_price" placeholder="base price (must be a number)"  value="<%= user.base_price%>" required />
+      </div>
+
+      <div class="form-field">
+        <label for="site_list">Site list</label>
+        <input class="box-shape" type="text" name="site_list" id="site_list" placeholder="site list" value="<%= user.site_list%>" required />
+      </div>
+
+
+    
+
+
+    <div class="form-field">
+      <input type="submit" value="Update guide" />
+    </div>
+  </form>
+
+<a href="/guide-list">Back to guide list</a>
+
+
+<%- include('include/_footer') %>

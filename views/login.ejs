@@ -5,7 +5,31 @@
 <!-- /include header -->
 
 
-      <form method="POST" action="/login" class="add-item-form">
+      <form id="login-form" method="POST" action="/login" class="add-item-form">
+              
+        <div class="login-role form-field">
+      
+          <label for="role">Select role:</label>
+          
+          
+          <div class="roles">
+            <input class="login-radio" type="radio" id="admin" name="role" value="admin">
+          <label class="admin login-role-item" for="admin">Admin</label>
+
+          <input class="login-radio" type="radio" id="field_agent" name="role" value="field_agent">
+          <label class="field_agent login-role-item" for="field_agent">Field agent</label>
+          
+          <input class="login-radio" type="radio" id="hotel_manager" name="role" value="hotel_manager">
+          <label class="hotel_manager login-role-item"  for="hotel_manager">Hotel manager</label>
+
+          <input class="login-radio" type="radio" id="guide" name="role" value="guide">
+          <label class="guide  login-role-item" for="guide">Guide</label>
+
+          <input class="login-radio" type="radio" id="rental_manager" name="role" value="rental_manager">
+          <label class="rental_manager  login-role-item" for="rental_manager">Rental manager</label>
+          </div>
+        </div>
+
         <div class="form-field">
           <label for="username">username</label>
           <input class="box-shape" type="text" name="username" id="username" placeholder="Username" required />
@@ -16,7 +40,7 @@
         </div>
         <div class="form-field">
           <label for=""></label>
-          <input style="width: 70%;" type="submit" value="Log in" />
+          <input id="login-button" type="submit" value="Log in" />
         </div>
       </form>
 

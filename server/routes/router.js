@@ -2,7 +2,8 @@ const express = require('express');
 const route = express.Router()
 const users = require('../models/users');
 
-const services = require('../services/render');
+const services = require('../services/services');
+const authservices = require('../services/auth-services');
 // const controller = require('../controller/controller'); //TODO
 const util =  require('../util/util');
 const granted = require('../util/permission');
@@ -10,28 +11,79 @@ const granted = require('../util/permission');
 
 // ADMIN ROUTES **************************************
 
-//user info route
-route.get('/adduser' , services.adduser);
-route.post('/adduser', services.createuser);
-route.get('/userlist', services.userlist);
+//adding users
+const admin_services = require('../services/admin-services');
 
-route.get('/user/:id', services.updateuserform);
-route.post('/user/:id', services.updateuser);
-
-route.get('/delete/user/:id', services.deleteuser);
-
-
+route.get('/add-hotel-manager' , admin_services.add_hotel_manager_view);
+route.post('/add-hotel-manager' , admin_services.add_hotel_manager_create);
+route.get('/hotel-manager-list' , admin_services.hotel_manager_list);
+route.get('/update-hotel-manager/:id', admin_services.update_hotel_manager_form);
+route.post('/update-hotel-manager/:id', admin_services.update_hotel_manager);
+route.get('/delete-hotel-manager/:id', admin_services.delete_hotel_manager);
 
 
+route.get('/add-field-agent' , admin_services.add_field_agent_view);
+route.post('/add-field-agent' , admin_services.add_field_agent_create);
+route.get('/field-agent-list' , admin_services.field_agent_list);
+route.get('/update-field-agent/:id', admin_services.update_field_agent_form);
+route.post('/update-field-agent/:id', admin_services.update_field_agent);
+route.get('/delete-field-agent/:id', admin_services.delete_field_agent);
 
-//hotel routes
-route.get('/addhotel', services.addhotel);
-route.post('/addhotel', services.createhotel);
+route.get('/add-guide' , admin_services.add_guide_view);
+route.post('/add-guide' , admin_services.add_guide_create);
+route.get('/guide-list' , admin_services.guide_list);
+route.get('/update-guide/:id', admin_services.update_guide_form);
+route.post('/update-guide/:id', admin_services.update_guide);
+route.get('/delete-guide/:id', admin_services.delete_guide);
+
+route.get('/add-rental-manager' , admin_services.add_rental_manager_view);
+route.post('/add-rental-manager' , admin_services.add_rental_manager_create);
+route.get('/rental-manager-list' , admin_services.rental_manager_list);
+route.get('/update-rental-manager/:id', admin_services.update_rental_manager_form);
+route.post('/update-rental-manager/:id', admin_services.update_rental_manager);
+route.get('/delete-rental-manager/:id', admin_services.delete_rental_manager);
+
+route.get('/add-admin' , admin_services.add_admin_view);
+route.post('/add-admin' , admin_services.add_admin_create);
+route.get('/admin-list' , admin_services.admin_list);
+route.get('/update-admin/:id', admin_services.update_admin_form);
+route.post('/update-admin/:id', admin_services.update_admin);
+route.get('/delete-admin/:id', admin_services.delete_admin);
 
 
-//room routes
-route.get('/addroom', services.addroom);
-route.post('/addroom', services.createroom);
+
+
+
+// auth routes
+
+route.get('/login', util.redirectifauth, authservices.login);
+route.post('/login', authservices.loggingin);
+
+
+
+//auth routes
+route.get('/logout', authservices.logout);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -42,16 +94,12 @@ route.get('/roomlist',granted.formanager, services.roomlist);
 
 
 
-//auth routes
-route.get('/login', util.redirectifauth, services.login);
-route.post('/login', services.loggingin);
-route.get('/logout', services.logout);
-
-
 //default routes TODO
 route.get('/', (req, res) => {
     res.redirect('profile');
 });
+
+
 route.get('/profile', services.profile);
 
 

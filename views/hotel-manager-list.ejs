@@ -1,0 +1,41 @@
+
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Username</th>
+      <th>Hotel Name</th>
+      <th>Location</th>
+      <th>Update/Delete</th>
+   
+    </tr>
+  </thead>
+  <tbody>
+    <% if(data.length){
+   
+    for(var i = 0; i< data.length; i++) {%>  
+    <tr>
+      <td><%= (i+1) %></td>
+      <td><%= data[i].username%></td>
+      <td><%= data[i].hotelname%></td>
+      <td><%= data[i].location%></td>
+      <td><a href="/update-hotel-manager/<%= data[i]._id%>">UPDATE</a>     <a href="/delete-hotel-manager/<%= data[i]._id%>">DELETE</a></td>
+    </tr>
+    <% }
+             
+     }else{ %>
+         <tr>
+            <td colspan="4">No user</td>
+         </tr>
+      <% } %>    
+    
+  </tbody>
+  </table>
+
+    <!-- include header -->
+    <%- include('include/_footer') %>
+    <!-- /include header -->

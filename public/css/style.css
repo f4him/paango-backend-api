@@ -4,7 +4,8 @@
 
 *{
   font-family: 'Poppins', sans-serif;
-  transition:all 0.3s ease-in-out;}
+  /* transition:all 0.3s ease-in-out; */
+}
 
 .nav-container{
   clear:both;
@@ -222,3 +223,49 @@ td:nth-child(n+2):nth-child(odd) {
 
 
 
+/* RADIO */
+
+.login-role{
+  display: inline-flex;
+  /* align-items: center; */
+  /* justify-content: space-evenly; */
+  border-radius: 5px;
+  padding: 20px 15px;
+  /* box-shadow: 5px 5px 30px rgba(0,0,0,0.2); */
+}
+.login-role .login-role-item{
+  background: #fff;
+  height: 50px;
+  width: 15%;
+  display: flex;
+  align-items:stretch;
+  /* justify-content: space-evenly; */
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 10px;
+  border: 2px solid lightgrey;
+  transition: all 0.3s ease;
+}
+
+input[class="login-radio"]{
+  display: none;
+}
+#hotel_manager:checked:checked ~ .hotel_manager,
+#rental_manager:checked:checked ~ .rental_manager,
+#admin:checked:checked ~ .admin,
+#guide:checked:checked ~ .guide,
+#field_agent:checked:checked ~ .field_agent{
+  border-color: #0069d9;
+  background: #0069d9;
+}
+
+#login-button{
+  width: 100%;
+}
+
+.roles{
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}

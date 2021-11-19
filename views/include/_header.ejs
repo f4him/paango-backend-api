@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="/css/nav.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet"> 
@@ -17,17 +19,30 @@
     
 
 
+
+    
+  
+
+
+
+
     <div class="nav-container">
         <div class="logo">
-            <a target="_blank" href="https://paango.org"><img src="/img/logo.png" alt="PAANGO" width="130"/></a>
+            <a target="" href="/"><img src="/img/logo.png" alt="PAANGO" width="130"/></a>
         </div>
                 <nav>
                     <ul>
                         <% if(role == 'admin'){ %>
-                            <li><a href="http://localhost:1523/adduser">addUsers</a></li>
-                            <li><a href="http://localhost:1523/userlist">Userlist</a></li>
-                            <li><a href="http://localhost:1523/addhotel">Hotels</a></li>
-                            <li><a href="http://localhost:1523/addroom">Rooms</a></li>
+                            <li><a href="/add-admin">add_admin</a></li>
+                            <li><a href="/admin-list">admin_list</a></li>
+                            <li><a href="/add-hotel-manager">add_hm</a></li>
+                            <li><a href="/hotel-manager-list">hm_list</a></li>
+                            <li><a href="/add-rental-manager">add_rm</a></li>
+                            <li><a href="/rental-manager-list">rm_list</a></li>
+                            <li><a href="/add-guide">add_g</a></li>
+                            <li><a href="/guide-list">g_list</a></li>
+                            <li><a href="/add-field-agent">add_fa</a></li>
+                            <li><a href="/field-agent-list">fa_list</a></li>
                             <% }  %>
                             <% if(role == 'manager'){ %>
                                 <li><a href="http://localhost:1523/roomlist">Roomlist</a></li>
