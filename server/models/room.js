@@ -6,9 +6,13 @@ const roomSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'hotel_managers'
     },
-    type: String
+    type: String,
+    price: Number,
+    capacity: Number,
+    facilities: [String],
+    amenities: [String],
+    img: String
+
 });
 
-const room = mongoose.model('Room', roomSchema);
-
-module.exports = room;
+module.exports = mongoose.model('rooms', roomSchema);

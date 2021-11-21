@@ -22,11 +22,11 @@ const hotel_manager_schema = new mongoose.Schema({
     location: {
         type: String,
         required: true
+    },
+    img:{
+        type: String,
+        required: true
     }
-    // hotel_img:{
-    //     type: String,
-    //     required: false
-    // }
 })
 
 hotel_manager_schema.pre('save', function (next) {

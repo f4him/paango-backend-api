@@ -1,6 +1,5 @@
 const express = require('express');
 const route = express.Router()
-const users = require('../models/users');
 
 const services = require('../services/services');
 const authservices = require('../services/auth-services');
@@ -9,14 +8,14 @@ const util =  require('../util/util');
 const granted = require('../util/permission');
 
 
+const upload = require("../util/multer");
 
 // ADMIN ROUTES **************************************
 
-//adding users
 const admin_services = require('../services/admin-services');
 
 route.get('/add-hotel-manager' , admin_services.add_hotel_manager_view);
-route.post('/add-hotel-manager' , admin_services.add_hotel_manager_create);
+route.post("/add-hotel-manager", upload.single("image"), admin_services.add_hotel_manager_create);
 route.get('/hotel-manager-list' , admin_services.hotel_manager_list);
 route.get('/update-hotel-manager/:id', admin_services.update_hotel_manager_form);
 route.post('/update-hotel-manager/:id', admin_services.update_hotel_manager);
@@ -51,6 +50,13 @@ route.get('/update-admin/:id', admin_services.update_admin_form);
 route.post('/update-admin/:id', admin_services.update_admin);
 route.get('/delete-admin/:id', admin_services.delete_admin);
 
+route.get('/add-room/', admin_services.add_room_view);
+route.post('/add-room/', admin_services.add_room_create);
+
+// HOTEL MANAGER ROUTES **************************************
+
+
+// const hotel_manager_services = require('../services/hotel-manager-services');
 
 
 

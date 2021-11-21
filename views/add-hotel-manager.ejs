@@ -3,7 +3,7 @@
 
 
 
-<form method="POST" action="/add-hotel-manager" class="add-item-form">
+<form method="POST" action="/add-hotel-manager" enctype="multipart/form-data" class="add-item-form">
     
     <div class="form-field">
       <label for="username">Manager name</label>
@@ -20,9 +20,14 @@
         <input class="box-shape" type="text" name="hotelname" id="hotelname" placeholder="hotel name" required />
       </div>
 
-    <div class="form-field">
+      <div class="form-field">
         <label for="location">Location</label>
         <input class="box-shape" type="text" name="location" id="location" placeholder="Location of hotel" required />
+      </div>
+
+      <div class="form-field">
+        <label for="image">Image</label>
+        <input class="box-shape" type="file" name="image" id="image" required />
       </div>
       
 

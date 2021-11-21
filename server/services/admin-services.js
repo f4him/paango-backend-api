@@ -8,12 +8,15 @@
 // update user
 // delete user (redirect to user list)
 
+const cloudinary = require("../util/cloudinary");
 
+//model declarations
 const hotel_managers = require('../models/hotel-manager');
 const field_agents = require('../models/field-agent');
 const guides = require('../models/guide');
 const rental_managers = require('../models/rental-manager');
 const admins = require('../models/admin');
+const rooms = require('../models/room');
 
 //hotel manager
 exports.add_hotel_manager_view =  (req, res) => {
@@ -27,12 +30,26 @@ exports.add_hotel_manager_view =  (req, res) => {
 //     })
 // }
 
-exports.add_hotel_manager_create = (req, res) => {
-    // req.body['role']='rental_manager';
-    hotel_managers.create(req.body, (error, post) => {
-        res.redirect("add-hotel-manager")
-    })
-}
+exports.add_hotel_manager_create = async (req, res) => {
+    try {
+      // Upload image to cloudinary
+      const result = await cloudinary.uploader.upload(req.file.path);
+  
+      // Create new user
+      let user = new hotel_managers({
+        username: req.body.username,
+        password: req.body.password,
+        hotelname: req.body.hotelname,
+        location: req.body.location,
+        img: result.secure_url,
+      });
+      // Save user
+      await user.save();
+      res.redirect('/add-hotel-manager');
+    } catch (err) {
+      res.send(err)
+    }
+  }
 
 
 
@@ -507,8 +524,32 @@ exports.update_admin_form = (req, res)=>{
     exports.delete_admin = (req, res) => {          
         var deleteId= req.params.id;
         
-        admins.findByIdAndDelete(deleteId,function(data){
+        admins.findByIdAndDelete(deleteIadminsd,function(data){
            res.redirect('/admin-list')
         });
       }
     
+
+
+
+
+
+      exports.add_room_view = (req, res) => {          
+        
+        res.render('add-room',{title:'Add a room', isloggedin: req.session.userId, role:req.session.role})
+      }
+    
+
+
+      exports.add_room_create = (req, res) => {          
+        console.log(req.body.facilities)
+        console.log(req.body.amenities)
+        
+        rooms.create(req.body,function(){
+           res.redirect('/add-room')
+        });
+      }
+    
+
+
+

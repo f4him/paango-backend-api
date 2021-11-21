@@ -8,7 +8,7 @@ function names: snake_case_format
 
 ### TO-DO small
 > - guide availability date format+array
-> - minor fixes in ejs files
+> - minor fixes in ejs files (types)
 > - delete hotel managers deletes associated
 
 

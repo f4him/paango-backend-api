@@ -1,0 +1,92 @@
+
+<%- include('include/_header') %>
+
+
+
+<form method="POST" action="/add-room" class="add-item-form">
+    
+    <div class="form-field">
+      <label for="roomid">Room ID</label>
+      <input class="box-shape" type="text" name="roomid" id="roomid" placeholder="Room number or name" required />
+    </div>
+
+    <div class="form-field">
+      <label for="type">Accomodation type</label>
+      <input class="box-shape" type="text" name="type" id="type" placeholder="accomodation type" required />
+    </div>
+
+    <div class="form-field">
+        <label for="price">Price per day</label>
+        <input class="box-shape" type="text" name="price" id="price" placeholder="Price per day" required />
+      </div>
+
+      <div class="form-field">
+        <label for="capacity">Capacity</label>
+        <input class="box-shape" type="text" name="capacity" id="capacity" placeholder="capacity" required />
+      </div>
+
+
+
+      <div class="form-field">
+        <label>Facilities</label>
+        <div class="box-shape">
+          <label><input type="checkbox" name="facilities[]" value="breakfast" /> Breakfast</label>
+      <label><input type="checkbox" name="facilities[]" value="restaurant" /> Restaurant</label>
+      <label><input type="checkbox" name="facilities[]" value="parking" /> Parking</label>
+      <label><input type="checkbox" name="facilities[]" value="24-hour_security" /> 24-hour Security</label>
+      <label><input type="checkbox" name="facilities[]" value="business_facilities" /> Business Facilities</label>
+      <label><input type="checkbox" name="facilities[]" value="swimming_pool" /> Swimming Pool</label>
+      <label><input type="checkbox" name="facilities[]" value="indoor_games" /> Indoor Games </label>
+      <label><input type="checkbox" name="facilities[]" value="airport_shuttle" /> Airport Shuttle</label>
+      <label><input type="checkbox" name="facilities[]" value="fitness_centre" /> Fitness Centre</label>
+      <label><input type="checkbox" name="facilities[]" value="outdoor_activities" /> Outdoor Activities</label>
+      <label><input type="checkbox" name="facilities[]" value="early_check-in" /> Early Check-in</label>
+      <label><input type="checkbox" name="facilities[]" value="late-check_in" /> Late Check-in</label>
+      <label><input type="checkbox" name="facilities[]" value="air_conditioning" /> Air Conditioning</label>
+      <label><input type="checkbox" name="facilities[]" value="kid_friendly" /> Kid Friendly</label>
+      <label><input type="checkbox" name="facilities[]" value="disability_friendly" /> Disability Friendly</label>
+      </div>
+    </div>
+    
+
+
+    <div class="form-field">
+      <label>Amenities</label>
+      <div class="box-shape">
+        <label><input type="checkbox" name="amenities[]" value="balcony" /> Balcony</label>
+        <label><input type="checkbox" name="amenities[]" value="air_conditioning" /> Air Conditioning</label>
+        <label><input type="checkbox" name="amenities[]" value="bathtub" /> Bathtub</label>
+        <label><input type="checkbox" name="amenities[]" value="ceiling_fan" /> Ceiling Fan</label>
+        <label><input type="checkbox" name="amenities[]" value="connecting_rooms" /> Connecting Rooms</label>
+        <label><input type="checkbox" name="amenities[]" value="cooker" /> Cooker</label>
+        <label><input type="checkbox" name="amenities[]" value="dining_area" /> Dining Area</label>
+        <label><input type="checkbox" name="amenities[]" value="disability_friendly" /> Disability Friendly</label>
+        <label><input type="checkbox" name="amenities[]" value="garden_view" /> Garden View</label>
+        <label><input type="checkbox" name="amenities[]" value="hairdryer" /> Hairdryer</label>
+        <label><input type="checkbox" name="amenities[]" value="hot_water" /> Hot Water</label>
+        <label><input type="checkbox" name="amenities[]" value="minibar" /> Minibar</label>
+        <label><input type="checkbox" name="amenities[]" value="mountain/hill_view" /> Mountain/Hill View </label>
+        <label><input type="checkbox" name="amenities[]" value="non_smoking_room" /> Non Smoking Room</label>
+        <label><input type="checkbox" name="amenities[]" value="power_outlet" /> Power Outlet</label>
+        <label><input type="checkbox" name="amenities[]" value="safe/locker" /> Safe/Locker</label>
+        <label><input type="checkbox" name="amenities[]" value="smoking_room" /> Smoking Room </label>
+        <label><input type="checkbox" name="amenities[]" value="tea_and_coffee" /> Tea anc Coffee</label>
+        <label><input type="checkbox" name="amenities[]" value="telephone" /> Telephone</label>
+        <label><input type="checkbox" name="amenities[]" value="toiletries" /> Toiletries </label>
+        <label><input type="checkbox" name="amenities[]" value="tv" /> TV </label>
+        <label><input type="checkbox" name="amenities[]" value="wi-fi" /> Wi-Fi</label>
+    </div>
+  </div>
+
+    
+
+
+    <div class="form-field">
+      <input type="submit" value="Add guide" />
+    </div>
+  </form>
+
+
+
+
+<%- include('include/_footer') %>
