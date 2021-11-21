@@ -7,19 +7,17 @@ function names: snake_case_format
 >  UNDER DEVELOPMENT
 
 ### TO-DO small
+> - guide availability date format+array
 > - minor fixes in ejs files
-> - delete hotel managers deletes associated rooms
-> - delete rental manager deletes associated vehicles
-> - get roomlist by manager/hotels
-> - get vehicle list by rental managers
-> - rooms get deleted with the deletion of manager/hotel
+> - delete hotel managers deletes associated
+
 
 ### TO-DO big
 > - Date range input for rooms
-> - guide availability date format+array
+> - rooms get deleted with the deletion of manager/hotel
 > - Finalize attributes for all models
 > - Admin routes for entities like managers, guides, agents, rooms, hotels
-> - Help messages and tips for all users
+> - Help messages and tips for 
 
 - being awsome ✨UwU✨
 

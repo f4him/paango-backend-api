@@ -3,8 +3,10 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 const expressSession = require('express-session');
-
+// const path = require('path')
 const MongoStore = require('connect-mongo');
+
+
 
 
 app.use(expressSession(

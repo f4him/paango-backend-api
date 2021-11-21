@@ -17,12 +17,16 @@ const hotel_manager_schema = new mongoose.Schema({
     },
     role: {
         type: String,
-        required: true
+        default: 'manager'
     },
     location: {
         type: String,
         required: true
     }
+    // hotel_img:{
+    //     type: String,
+    //     required: false
+    // }
 })
 
 hotel_manager_schema.pre('save', function (next) {

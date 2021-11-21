@@ -20,12 +20,21 @@ exports.add_hotel_manager_view =  (req, res) => {
     res.render("add-hotel-manager", {title: "Add a hotel manager",isloggedin: req.session.userId, role:req.session.role});
 }
 
+// exports.add_hotel_manager_create = (req, res) => {
+//     // req.body['role']='hotel_manager';
+//     hotel_managers.create(req.body, (error, post) => {
+//         res.redirect("add-hotel-manager")
+//     })
+// }
+
 exports.add_hotel_manager_create = (req, res) => {
-    req.body['role']='hotel_manager';
+    // req.body['role']='rental_manager';
     hotel_managers.create(req.body, (error, post) => {
         res.redirect("add-hotel-manager")
     })
 }
+
+
 
 exports.hotel_manager_list = function(req, res) {
       
