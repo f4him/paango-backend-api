@@ -1,9 +1,9 @@
 
 <%- include('include/_header') %>
 
-
-
-<form method="POST" action="/add-room" class="add-item-form">
+<h2>ADDING ROOM for hotel <b><%=user.hotelname%></b></h2>
+<a href="/hotel-manager-list">Back to hotel/manager list</a>
+<form method="POST" action="/add-room/<%=user._id%>" enctype="multipart/form-data" class="add-item-form">
     
     <div class="form-field">
       <label for="roomid">Room ID</label>
@@ -78,7 +78,10 @@
     </div>
   </div>
 
-    
+  <div class="form-field">
+    <label for="image">Image</label>
+    <input class="box-shape" type="file" name="image" id="image" multiple required />
+  </div>
 
 
     <div class="form-field">

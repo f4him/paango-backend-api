@@ -11,6 +11,8 @@
       <th>Hotel Name</th>
       <th>Location</th>
       <th>Image link</th>
+      <th>ADD ROOMS</th>
+      <th>VIEW ROOMS</th>
       <th>Update/Delete</th>
    
     </tr>
@@ -25,6 +27,8 @@
       <td><%= data[i].hotelname%></td>
       <td><%= data[i].location%></td>
       <td><a href="<%= data[i].img%>">See Image</a></td>
+      <td><a href="/add-room/<%= data[i]._id%>">Add room</a></td>
+      <td><a href="/room-list/<%= data[i]._id%>">View rooms</a></td>
       <td><a href="/update-hotel-manager/<%= data[i]._id%>">UPDATE</a>     <a href="/delete-hotel-manager/<%= data[i]._id%>">DELETE</a></td>
     </tr>
     <% }

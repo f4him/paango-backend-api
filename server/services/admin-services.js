@@ -23,12 +23,7 @@ exports.add_hotel_manager_view =  (req, res) => {
     res.render("add-hotel-manager", {title: "Add a hotel manager",isloggedin: req.session.userId, role:req.session.role});
 }
 
-// exports.add_hotel_manager_create = (req, res) => {
-//     // req.body['role']='hotel_manager';
-//     hotel_managers.create(req.body, (error, post) => {
-//         res.redirect("add-hotel-manager")
-//     })
-// }
+
 
 exports.add_hotel_manager_create = async (req, res) => {
     try {
@@ -534,22 +529,70 @@ exports.update_admin_form = (req, res)=>{
 
 
 
-      exports.add_room_view = (req, res) => {          
+      exports.add_room_view = (req, res) => {       
+          id = req.params.id
+          hotel_managers.findById(id)
+          .then(data =>{
+              if(!data){
+                  res.status(404).send({ message : "Not found user with id "+ id})
+              }else{
+  
+                  res.render('add-room',{user: data,title:'Add a room', isloggedin: req.session.userId, role:req.session.role})
+              }
+          })
+          .catch(err =>{
+              res.status(500).send({ message: "Error retrieving user with id " + id})
+          })
         
-        res.render('add-room',{title:'Add a room', isloggedin: req.session.userId, role:req.session.role})
       }
     
 
 
-      exports.add_room_create = (req, res) => {          
-        console.log(req.body.facilities)
-        console.log(req.body.amenities)
-        
-        rooms.create(req.body,function(){
-           res.redirect('/add-room')
-        });
-      }
+      
     
 
 
+    //   const result = await cloudinary.uploader.upload(req.file.path);
 
+
+      exports.add_room_create = async (req, res) => {
+            const urls = [];
+            const files = req.files;
+            for (const file of files) {
+              const { path } = file;
+              const result = await cloudinary.uploader.upload(path);
+            //   const newPath = await cloudinaryImageUploadMethod(path);
+              urls.push(result.secure_url);
+            }
+    
+            let room = new rooms({
+              roomid: req.body.roomid,
+              type: req.body.type,
+              hotel: req.params.id,
+              price: req.body.price,
+              capacity: req.body.capacity,
+              facilities: req.body.facilities,
+              amenities:req.body.amenities,
+              img: urls
+            });
+            // console.log(room)
+            await room.save();
+
+            res.redirect("#")
+         }
+    
+    
+
+         exports.room_list = function(req, res) {
+
+            id = req.params.id
+              
+            rooms.find({ hotel: id},(err, data) => {
+                if (!err) {
+                    res.render("room-list", {title: "Room list",isloggedin: req.session.username, role:req.session.role, data: data});
+                } else {
+                    console.log('Error: ' + err);
+                }
+            });
+         
+        }

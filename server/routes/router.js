@@ -50,11 +50,16 @@ route.get('/update-admin/:id', admin_services.update_admin_form);
 route.post('/update-admin/:id', admin_services.update_admin);
 route.get('/delete-admin/:id', admin_services.delete_admin);
 
-route.get('/add-room/', admin_services.add_room_view);
-route.post('/add-room/', admin_services.add_room_create);
+route.get('/add-room/:id', admin_services.add_room_view);
+route.post('/add-room/:id',upload.array("image"), admin_services.add_room_create);
+
+
+route.get('/room-list/:id', admin_services.room_list);
 
 // HOTEL MANAGER ROUTES **************************************
 
+const hotel_manager_services = require('../services/hotel-manager-services');
+route.get('/room-list/', hotel_manager_services.room_list);
 
 // const hotel_manager_services = require('../services/hotel-manager-services');
 

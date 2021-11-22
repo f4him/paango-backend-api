@@ -11,8 +11,9 @@ function names: snake_case_format
 > - minor fixes in ejs files (types)
 > - delete hotel managers deletes associated
 
-
 ### TO-DO big
+> - CLOUDINARY IMAGE DELETION WITH DB DOC DELETE
+> - room-list
 > - Date range input for rooms
 > - rooms get deleted with the deletion of manager/hotel
 > - Finalize attributes for all models

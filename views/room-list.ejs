@@ -1,0 +1,37 @@
+
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Roomid</th>
+      <th>roomtype</th>
+   
+    </tr>
+  </thead>
+  <tbody>
+    <% if(data.length){
+   
+    for(var i = 0; i< data.length; i++) {%>  
+    <tr>
+      <td><%= (i+1) %></td>
+      <td><%= data[i].roomid%></td>
+      <td><%= data[i].type%></td>
+    </tr>
+    <% }
+             
+     }else{ %>
+         <tr>
+            <td>No room</td>
+         </tr>
+      <% } %>    
+    
+  </tbody>
+  </table>
+
+    <!-- include header -->
+    <%- include('include/_footer') %>
+    <!-- /include header -->
