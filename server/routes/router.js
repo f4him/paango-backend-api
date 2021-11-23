@@ -72,16 +72,22 @@ route.get('/delete-vehicle/:id', admin_services.delete_vehicle);
 
 
 
+
+
+
+
 // HOTEL MANAGER ROUTES **************************************
 
 const hotel_manager_services = require('../services/hotel-manager-services');
 route.get('/room-list/', hotel_manager_services.room_list);
+route.post('/add-booking/:id', hotel_manager_services.add_booking_create);
+route.get('/view-booking/:id', admin_services.view_booking);
 
 
 // RENTAL MANAGER ROUTES **************************************
 
-// const hotel_manager_services = require('../services/hotel-manager-services');
-// route.get('/room-list/', hotel_manager_services.room_list);
+const rental_manager_services = require('../services/rental-manager-services');
+route.get('/vehicle-list/', rental_manager_services.vehicle_list);
 
 // const hotel_manager_services = require('../services/hotel-manager-services');
 

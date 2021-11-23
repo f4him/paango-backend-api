@@ -1,0 +1,39 @@
+
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>From</th>
+      <th>To</th>
+      <th>DELETE</th>
+   
+    </tr>
+  </thead>
+  <tbody>
+    <% if(data.length){
+   
+    for(var i = 0; i< data.length; i++) {%>  
+    <tr>
+      <td><%= (i+1) %></td>
+      <td><%= data[i].from%></td>
+      <td><%= data[i].to%></td>
+      <td><a href="/delete-booking/<%= data[i]._id%>">DELETE</a></td>
+    </tr>
+    <% }
+             
+     }else{ %>
+         <tr>
+            <td>No user</td>
+         </tr>
+      <% } %>    
+    
+  </tbody>
+  </table>
+
+    <!-- include header -->
+    <%- include('include/_footer') %>
+    <!-- /include header -->

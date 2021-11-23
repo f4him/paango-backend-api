@@ -18,6 +18,7 @@ const rental_managers = require('../models/rental-manager');
 const admins = require('../models/admin');
 const rooms = require('../models/room');
 const vehicles = require('../models/vehicle');
+const bookings = require('../models/booking');
 
 //hotel manager
 exports.add_hotel_manager_view =  (req, res) => {
@@ -665,4 +666,35 @@ exports.update_admin_form = (req, res)=>{
           });
         }
       
+  
+
+        exports.booking_list = function(req, res) {
+
+            id = req.params.id
+              
+            bookings.find({ room: id},(err, data) => {
+                if (!err) {
+                    res.render("booking-list", {title: "Booking list",isloggedin: req.session.username, role:req.session.role, data: data});
+                } else {
+                    console.log('Error: ' + err);
+                }
+            });
+         
+        }
+  
+
+
+        exports.view_booking = function(req, res) {
+
+            id = req.params.id
+              
+            bookings.find({ room: id},(err, data) => {
+                if (!err) {
+                    res.render("booking-list", {title: "booking list",isloggedin: req.session.username, role:req.session.role, data: data});
+                } else {
+                    console.log('Error: ' + err);
+                }
+            });
+         
+        }
   
