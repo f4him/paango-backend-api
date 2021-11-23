@@ -9,6 +9,12 @@
       <th>#</th>
       <th>Roomid</th>
       <th>roomtype</th>
+      <th>start Date</th>
+      <th>End Date</th>
+      <th>Add booking</th>
+      <th>View bookings</th>
+      <th>UPDATE</th>
+      <th>DELETE</th>
    
     </tr>
   </thead>
@@ -20,6 +26,17 @@
       <td><%= (i+1) %></td>
       <td><%= data[i].roomid%></td>
       <td><%= data[i].type%></td>
+
+      <form method="POST" action="/add-booking/<%= data[i]._id%>" class="add-item-form">
+
+      
+        <td><input class="box-shape" type="date" name="from" /></td>
+        <td><input class="box-shape" type="date" name="to" /></td>
+        <td><input type="submit" value="add booking"  /></td>
+      </form>
+      <td><a href="/view-booking/<%= data[i]._id%>">VIEW BOOKINGS</a></td>
+      <td><a href="/update-room/<%= data[i]._id%>">UPDATE</a></td>
+      <td><a href="/delete-room/<%= data[i]._id%>">DELETE</a></td>
     </tr>
     <% }
              

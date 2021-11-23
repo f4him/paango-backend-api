@@ -50,16 +50,38 @@ route.get('/update-admin/:id', admin_services.update_admin_form);
 route.post('/update-admin/:id', admin_services.update_admin);
 route.get('/delete-admin/:id', admin_services.delete_admin);
 
+
+//room
 route.get('/add-room/:id', admin_services.add_room_view);
 route.post('/add-room/:id',upload.array("image"), admin_services.add_room_create);
-
-
 route.get('/room-list/:id', admin_services.room_list);
+// route.get('/update-room/:id', admin_services.update_room_form);
+// route.post('/update-rooom/:id', admin_services.update_room);
+
+route.get('/delete-room/:id', admin_services.delete_room);
+
+
+
+// vehicle
+route.get('/add-vehicle/:id', admin_services.add_vehicle_view);
+route.post('/add-vehicle/:id', admin_services.add_vehicle_create);
+route.get('/vehicle-list/:id', admin_services.vehicle_list);
+// route.get('/update-vehicle/:id', admin_services.update_vehicle_form);
+// route.post('/update-vehiclem/:id', admin_services.update_vehicle);
+route.get('/delete-vehicle/:id', admin_services.delete_vehicle);
+
+
 
 // HOTEL MANAGER ROUTES **************************************
 
 const hotel_manager_services = require('../services/hotel-manager-services');
 route.get('/room-list/', hotel_manager_services.room_list);
+
+
+// RENTAL MANAGER ROUTES **************************************
+
+// const hotel_manager_services = require('../services/hotel-manager-services');
+// route.get('/room-list/', hotel_manager_services.room_list);
 
 // const hotel_manager_services = require('../services/hotel-manager-services');
 

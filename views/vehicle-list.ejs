@@ -7,11 +7,13 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>Username</th>
-      <th>Add vehicle</th>
-      <th>Vehicle list</th>
-      <th>Update/Delete</th>
-   
+      <th>Vehicleid</th>
+      <th>Vehicletype</th>
+      <th>Cost</th>
+      <th>Capacity</th>
+      <th>UPDATE</th>
+      <th>DELETE</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -20,16 +22,22 @@
     for(var i = 0; i< data.length; i++) {%>  
     <tr>
       <td><%= (i+1) %></td>
-      <td><%= data[i].username%></td>
-      <td><a href="/add-vehicle/<%= data[i]._id%>">Add vehicle</a></td>
-      <td><a href="/vehicle-list/<%= data[i]._id%>">View vehicles</a></td>
-      <td><a href="/update-rental-manager/<%= data[i]._id%>">UPDATE</a>     <a href="/delete-rental-manager/<%= data[i]._id%>">DELETE</a></td>
+      <td><%= data[i].vehicleid%></td>
+      <td><%= data[i].type%></td>
+      <td><%= data[i].cost%></td>
+      <td><%= data[i].capacity%></td>
+      <td><a href="/update-vehicle/<%= data[i]._id%>">UPDATE</a></td>
+      <td><a href="/delete-vehicle/<%= data[i]._id%>">DELETE</a></td>
+
+
+      
+        
     </tr>
     <% }
              
      }else{ %>
          <tr>
-            <td>No user</td>
+            <td>No room</td>
          </tr>
       <% } %>    
     
