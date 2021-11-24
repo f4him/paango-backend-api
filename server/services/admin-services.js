@@ -668,22 +668,6 @@ exports.update_admin_form = (req, res)=>{
       
   
 
-        exports.booking_list = function(req, res) {
-
-            id = req.params.id
-              
-            bookings.find({ room: id},(err, data) => {
-                if (!err) {
-                    res.render("booking-list", {title: "Booking list",isloggedin: req.session.username, role:req.session.role, data: data});
-                } else {
-                    console.log('Error: ' + err);
-                }
-            });
-         
-        }
-  
-
-
         exports.view_booking = function(req, res) {
 
             id = req.params.id

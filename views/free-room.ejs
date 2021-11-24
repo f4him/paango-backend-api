@@ -1,0 +1,22 @@
+
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+<form method="POST" action="/free-rooms" class="add-item-form">
+
+      
+  <td><input class="box-shape" type="date" name="from" /></td>
+  <td><input class="box-shape" type="date" name="to" /></td>
+  <td><input type="submit" value="add booking"  /></td>
+</form>
+
+
+<% if(data.length){ %>
+  <p><%= data.from%></p>
+  <p><%= data.to%></p>
+<% } %>
+
+    <!-- include header -->
+    <%- include('include/_footer') %>
+    <!-- /include header -->

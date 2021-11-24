@@ -105,6 +105,10 @@ route.post('/login', authservices.loggingin);
 route.get('/logout', authservices.logout);
 
 
+route.get('/free-rooms', services.free_now_get);
+route.post('/free-rooms', services.free_now_post);
+
+
 
 
 

@@ -29,5 +29,5 @@ exports.add_booking_create = async (req, res) => {
 
     await booking.save();
 
-    res.redirect("/room-list")
+    res.redirect("/room-list/619d5308841b070c953b3a73")
  }
