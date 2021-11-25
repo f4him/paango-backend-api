@@ -12,7 +12,7 @@ exports.login = (req, res) => {
 }
 
 
-exports.loggingin = (req, res) => {
+exports.loggingin = async (req, res) => {
 
 
     const {
@@ -24,9 +24,9 @@ exports.loggingin = (req, res) => {
     if(role == 'admin'){
      
         // try to find the user
-    admins.findOne({
-        username
-    }, (error, user) => {
+    const user = await admins.findOne({username})
+
+    
         if (user) {
             // compare passwords.
             bcrypt.compare(password, user.password, (error, same) => {
@@ -43,16 +43,17 @@ exports.loggingin = (req, res) => {
         } else {
             return res.send('username not found')
         }
-    })
+
+
     }
 
 
     if(role == 'hotel_manager'){
      
         // try to find the user
-    hotel_managers.findOne({
-        username
-    }, (error, user) => {
+    const user = await hotel_managers.findOne({username})
+
+    
         if (user) {
             // compare passwords.
             bcrypt.compare(password, user.password, (error, same) => {
@@ -69,16 +70,18 @@ exports.loggingin = (req, res) => {
         } else {
             return res.send('username not found')
         }
-    })
+
+
     }
+
 
 
     if(role == 'rental_manager'){
      
         // try to find the user
-    rental_managers.findOne({
-        username
-    }, (error, user) => {
+    const user = await rental_managers.findOne({username})
+
+    
         if (user) {
             // compare passwords.
             bcrypt.compare(password, user.password, (error, same) => {
@@ -95,15 +98,19 @@ exports.loggingin = (req, res) => {
         } else {
             return res.send('username not found')
         }
-    })
+
+
     }
+
+
+    
 
     if(role == 'field_agent'){
      
         // try to find the user
-    field_agents.findOne({
-        username
-    }, (error, user) => {
+    const user = await field_agents.findOne({username})
+
+    
         if (user) {
             // compare passwords.
             bcrypt.compare(password, user.password, (error, same) => {
@@ -120,16 +127,20 @@ exports.loggingin = (req, res) => {
         } else {
             return res.send('username not found')
         }
-    })
+
+
     }
 
+
+
+    
 
     if(role == 'guide'){
      
         // try to find the user
-    guides.findOne({
-        username
-    }, (error, user) => {
+    const user = await guides.findOne({username})
+
+    
         if (user) {
             // compare passwords.
             bcrypt.compare(password, user.password, (error, same) => {
@@ -146,8 +157,10 @@ exports.loggingin = (req, res) => {
         } else {
             return res.send('username not found')
         }
-    })
+
+
     }
+
 }
 
 

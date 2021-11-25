@@ -17,7 +17,7 @@ const hotel_manager_schema = new mongoose.Schema({
     },
     role: {
         type: String,
-        default: 'manager'
+        default: 'hotel_manager'
     },
     location: {
         type: String,
